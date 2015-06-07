@@ -1,0 +1,23 @@
+body{
+    background-color: #070001;
+}
+
+#timer{
+    margin:0 auto;
+    height:30vh;
+    width:40vw;
+    text-align:center;
+    padding-top:25vh
+}
+
+#timer-display{
+    font-family: Consolas, monaco, monospace;
+    color: #EA1700;
+    font-size:15vw;
+}
+
+button{
+    margin:10px;
+    font-size:48px;
+    width:100px;
+}
