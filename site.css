@@ -3,17 +3,17 @@ body{
 }
 
 #timer{
-    margin:0 auto;
-    height:30vh;
-    width:40vw;
-    text-align:center;
-    padding-top:25vh
+        margin: 0 auto;
+    height: 68vh;
+    width: 85vw;
+    text-align: center;
+    padding-top: 13vh;
 }
 
 #timer-display{
     font-family: Consolas, monaco, monospace;
     color: #EA1700;
-    font-size:15vw;
+    font-size:27vw;
 }
 
 button{
