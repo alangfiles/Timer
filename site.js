@@ -26,7 +26,7 @@ function displayTime() {
     document.getElementById("timer-display").innerHTML = timeString;
 }
 
-function tickClock(){
+function tickDown(){
     if(timeLeft > 0){
         timeLeft -= 1;
         displayTime();
@@ -37,14 +37,24 @@ function tickClock(){
     }
 }
 
+function tickUp(){
+    timeLeft += 1;
+    displayTime();
+}
+
+
 function clearAlarm(){
     clearInterval(alarm);
 }
 
-function startTimer() {
+function startCountdown() {
     document.getElementById('timer-start').disabled=true;
-    timer = setInterval(tickClock, 1000); //once a second
-    
+    timer = setInterval(tickDown, 1000); //once a second
+}
+
+function startTimer(){
+    document.getElementById('timer-start').disabled=true;
+    timer = setInterval(tickUp, 1000); //once a second   
 }
 
 function soundAlarm(){
