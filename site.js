@@ -64,3 +64,13 @@ function soundAlarm(){
     alarm = setInterval(function() { snd.play(); }, 300);
     setTimeout(clearAlarm, 3500);
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+    var minutes = location.hash.substr(1);
+    if(minutes != ""){
+        for(var i =0; i < minutes; i++){
+            addMinute();
+        }
+        startCountdown();
+    }    
+});
