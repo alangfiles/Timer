@@ -68,9 +68,14 @@ function soundAlarm(){
 document.addEventListener("DOMContentLoaded", function() {
     var minutes = location.hash.substr(1);
     if(minutes != ""){
-        for(var i =0; i < minutes; i++){
-            addMinute();
+        if(minutes == "0"){
+            startTimer();
         }
-        startCountdown();
+        else{
+            for(var i =0; i < minutes; i++){
+                addMinute();
+            }
+            startCountdown();
+        }
     }    
 });
