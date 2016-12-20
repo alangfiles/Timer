@@ -25,6 +25,7 @@ function displayTime() {
     var timeString = m + ":" + s;
     
     document.getElementById("timer-display").innerHTML = timeString;
+    document.title = timeString;
 }
 
 function tickDown(){
