@@ -69,7 +69,7 @@ function soundAlarm(){
 
 function alarm(){
         var body = document.getElementsByTagName('body')[0];
-        if( body.style.backgroundColor != '#EA1700'){
+        if( body.style.backgroundColor != 'rgb(234, 23, 0)'){ //have to check it as rgb
                body.style.backgroundColor = '#EA1700'
         }
         else{
