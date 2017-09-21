@@ -47,6 +47,7 @@ function tickUp(){
 
 function clearAlarm(){
     clearInterval(alarm);
+    document.getElementsByTagName('body')[0].style.backgroundColor = '#070001'
 }
 
 function startCountdown() {
@@ -62,8 +63,19 @@ function startTimer(){
 }
 
 function soundAlarm(){
-    alarm = setInterval(function() { snd.play(); }, 300);
+    alarm = setInterval(alarm, 300);
     setTimeout(clearAlarm, 3500);
+}
+
+function alarm(){
+        var body = document.getElementsByTagName('body')[0];
+        if( body.style.backgroundColor != '#EA1700'){
+               body.style.backgroundColor = '#EA1700'
+        }
+        else{
+               body.style.backgroundColor = '#070001'
+        }
+        snd.play();
 }
 
 document.addEventListener("DOMContentLoaded", function() {
