@@ -1,6 +1,5 @@
 const electron = require('electron')
 
-
 // Module to control application life.
 const app = electron.app
 // Module to create native browser window.
@@ -47,9 +46,9 @@ function createWindow() {
 function createTray() {
   tray = new electron.Tray('assets/icons/png/Timer2.png_64x64.png')
   const contextMenu = electron.Menu.buildFromTemplate([
-    { label: '1 minute', click() { window.addMinute() } },
-    { label: '5 minutes', click() { } },
-    { label: '20 minutes', click() { } }
+    { label: '1 minute', click() { mainWindow.webContents.send('addTime', 1) } },
+    { label: '5 minutes', click() { mainWindow.webContents.send('addTime', 5) } },
+    { label: '20 minutes', click() { mainWindow.webContents.send('addTime', 20) } }
   ])
   tray.setToolTip('Timer Application');
   tray.setContextMenu(contextMenu);
@@ -57,7 +56,6 @@ function createTray() {
     mainWindow.isVisible() ? mainWindow.hide() : mainWindow.show()
   })
 }
-
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.

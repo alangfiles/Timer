@@ -1,4 +1,10 @@
+const { ipcRenderer } = require('electron');
 
+ipcRenderer.on('addTime', (event, minutes) =>  { 
+    for(let i = 0; i < minutes; i++) {
+        addMinute();
+    }
+})
 
 var timer, alarm; //interval events
 var timeLeft = 0;
