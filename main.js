@@ -1,4 +1,6 @@
 const electron = require('electron')
+
+
 // Module to control application life.
 const app = electron.app
 // Module to create native browser window.
@@ -34,6 +36,9 @@ function createWindow() {
     slashes: true
   }))
 
+  mainWindow.on('closed', () => {
+    mainWindow = null;
+  });
 
   mainWindow.on('ready-to-show', () => mainWindow.show());
 }
@@ -42,23 +47,17 @@ function createWindow() {
 function createTray() {
   tray = new electron.Tray('assets/icons/png/Timer2.png_64x64.png')
   const contextMenu = electron.Menu.buildFromTemplate([
-    { label: '1 minute', click() { } },
+    { label: '1 minute', click() { window.addMinute() } },
     { label: '5 minutes', click() { } },
-    { label: '20 minutes', click() { } },
-    { type: 'separator' },
-    { label: 'Close Application', click() { closeApplication() } }
+    { label: '20 minutes', click() { } }
   ])
-  tray.setToolTip('This is my application.');
+  tray.setToolTip('Timer Application');
   tray.setContextMenu(contextMenu);
   tray.on('click', () => {
     mainWindow.isVisible() ? mainWindow.hide() : mainWindow.show()
   })
 }
 
-function closeApplication() {
-  mainWindow = null;
-  app.quit();
-}
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
@@ -69,14 +68,8 @@ app.on('ready', () => {
   createTray();
 })
 
-// Quit when all windows are closed.
-app.on('window-all-closed', function () {
-  tray.displayBalloon({ title: 'Moved', content: 'moved to notification bar' })
-})
 
 app.on('activate', function () {
-  // On OS X it's common to re-create a window in the app when the
-  // dock icon is clicked and there are no other windows open.
   if (mainWindow === null) {
     createWindow()
   }
