@@ -1,0 +1,23 @@
+{
+  "name": "timer-electron",
+  "version": "1.0.0",
+  "description": "an electron version of my timer",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alangfiles/Timer.git"
+  },
+  "author": "Alan Files",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alangfiles/Timer/issues"
+  },
+  "homepage": "https://github.com/alangfiles/Timer#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "electron": "^1.8.4"
+  }
+}
