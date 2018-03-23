@@ -44,7 +44,7 @@ function createWindow() {
 
 
 function createTray() {
-  tray = new electron.Tray('assets/icons/png/Timer2.png_64x64.png')
+  tray = new electron.Tray(path.join(__dirname,'assets/icons/png/64x64.png'));
   const contextMenu = electron.Menu.buildFromTemplate([
     { label: '1 minute', click() { mainWindow.webContents.send('addTime', 1) } },
     { label: '5 minutes', click() { mainWindow.webContents.send('addTime', 5) } },
@@ -72,6 +72,12 @@ app.on('activate', function () {
     createWindow()
   }
 })
+
+app.on('window-all-closed', app.quit);
+app.on('before-quit', () => {
+    mainWindow.close();
+    tray.close();
+});
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.

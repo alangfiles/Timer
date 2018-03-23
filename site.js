@@ -1,8 +1,11 @@
 const { ipcRenderer } = require('electron');
 
 ipcRenderer.on('addTime', (event, minutes) =>  { 
+    timeLeft = 0;
     for(let i = 0; i < minutes; i++) {
+        clearInterval(timer);
         addMinute();
+        startCountdown();
     }
 })
 
@@ -16,7 +19,7 @@ function pauseTimer() {
     clearInterval(timer);
 }
 
-addMinute = function () {
+function addMinute() {
     timeLeft += 60;
     displayTime();
 }

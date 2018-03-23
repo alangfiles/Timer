@@ -1,10 +1,15 @@
 {
-  "name": "timer-electron",
-  "version": "1.0.0",
+  "name": "timerelectron",
+  "productName": "Alan Files' Electron Timer",
+  "version": "1.1.0",
   "description": "an electron version of my timer",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=assets/icons/mac/Timer2.png.icns --prune=true --out=release-builds",
+    "package-win": "electron-packager . timer-electron --overwrite --platform=win32 --arch=ia32 --icon=assets/icons/win/Timer2.png.ico --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"Alan Files' Timer App\"",
+    "package-linux": "electron-packager . timer-electron --overwrite --asar=true --platform=linux --arch=x64 --icon=assets/icons/png/Timer2.png_512x512.png --prune=true --out=release-builds",
+    "pack-win": "electron-packager . --platform=win32 --arch=x64 --out=release/package"
   },
   "repository": {
     "type": "git",
@@ -18,6 +23,8 @@
   "homepage": "https://github.com/alangfiles/Timer#readme",
   "dependencies": {},
   "devDependencies": {
-    "electron": "^1.8.4"
+    "electron": "^1.8.4",
+    "electron-packager": "^11.1.0",
+    "electron-winstaller": "^2.6.4"
   }
 }
