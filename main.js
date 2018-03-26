@@ -48,7 +48,9 @@ function createTray() {
   const contextMenu = electron.Menu.buildFromTemplate([
     { label: '1 minute', click() { mainWindow.webContents.send('addTime', 1) } },
     { label: '5 minutes', click() { mainWindow.webContents.send('addTime', 5) } },
-    { label: '20 minutes', click() { mainWindow.webContents.send('addTime', 20) } }
+    { label: '20 minutes', click() { mainWindow.webContents.send('addTime', 20) } },
+    { type: 'separator' },
+    { label: 'Close', click() { app.quit() } },
   ])
   tray.setToolTip('Timer Application');
   tray.setContextMenu(contextMenu);

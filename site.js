@@ -1,13 +1,14 @@
-const { ipcRenderer } = require('electron');
+//uncomment to get electron stuff working.
+//const { ipcRenderer } = require('electron');
 
-ipcRenderer.on('addTime', (event, minutes) =>  { 
-    timeLeft = 0;
-    for(let i = 0; i < minutes; i++) {
-        clearInterval(timer);
-        addMinute();
-        startCountdown();
-    }
-})
+// ipcRenderer.on('addTime', (event, minutes) =>  { 
+//     timeLeft = 0;
+//     for(let i = 0; i < minutes; i++) {
+//         clearInterval(timer);
+//         addMinute();
+//         startCountdown();
+//     }
+// })
 
 var timer, alarm; //interval events
 var timeLeft = 0;
@@ -23,8 +24,6 @@ function addMinute() {
     timeLeft += 60;
     displayTime();
 }
-
-window.addMinute = addMinute;
 
 function addZero(x, n) {
     //add n leading zeros to x
